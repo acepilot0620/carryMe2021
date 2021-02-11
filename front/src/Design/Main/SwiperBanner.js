@@ -55,6 +55,11 @@ class BannerSwiper extends Component {
                     slidesPerView={1}
                     direction={'horizontal'}
                     navigation
+                    autoplay = {
+                        {
+                            delay: 2500
+                        }
+                    }
                     loop={true}
                     pagination={{ clickable: true }}
 
