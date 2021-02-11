@@ -1,0 +1,6 @@
+node-sass@4.14.0
+react-scripts
+react-router-dom
+axios
+swiper
+@material-ui/core
