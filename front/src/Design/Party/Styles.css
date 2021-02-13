@@ -1,19 +1,32 @@
-.divTop30 {
-    position: relative;
-    width: 100%;
-    height: 400px;
-}
 .hSection {
     position: relative;
-    top: 40px;
-    height: 120px;
+    margin-top: 5%;
+}
+.lineDivide {
+    position: relative;
+    margin-top: 5%;
+    border: 1px solid #707070;
+    width: 90%;
 }
 .pagePartyMain {
     color: #01DDD1;
 }
+.searchFilterModule {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    align-content: left;
+}
+.searchResultModule {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    align-content: left;
+}
 .searchModule {
     position: relative;
-    top: 80px;
     margin: 0 auto;
     width: 90%;
     height: 300px;

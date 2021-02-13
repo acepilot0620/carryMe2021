@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Styles.css';
-import {SearchModule} from '.';
+import {SearchModule, SearchFilterModule, SearchResultModule} from '.';
 
 class PagePartyMain extends Component {
     render() {
@@ -8,6 +8,10 @@ class PagePartyMain extends Component {
             <div
                 className="pagePartyMain">
                 <SearchModule></SearchModule>
+                <hr className = "lineDivide"></hr>
+                <SearchFilterModule></SearchFilterModule>
+                <hr className = "lineDivide"></hr>
+                <SearchResultModule></SearchResultModule>
             </div>
         );
     }
