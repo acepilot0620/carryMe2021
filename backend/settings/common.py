@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'account',
     'main',
     #third party apps
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -81,8 +82,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'carryme',
-        'USER': 'choijungho',
+        'NAME': 'backend_carryme',
+        'USER': 'acepilot0620',
         'PASSWORD': 'chlwjdgh97!',
         'HOST': 'localhost',
         'PORT': '',
