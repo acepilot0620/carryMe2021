@@ -1,3 +1,83 @@
+.divTop30 {
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+.hSection {
+    position: relative;
+    top: 40px;
+    height: 120px;
+}
 .pagePartyMain {
     color: #01DDD1;
+}
+.searchModule {
+    position: relative;
+    top: 80px;
+    margin: 0 auto;
+    width: 90%;
+    height: 300px;
+    background-color: #5E5E5E;
+}
+.filterName {
+    width: 40%;
+    height: 33%;
+    float: left;
+}
+.filterTier {
+    width: 60%;
+    height: 33%;
+    float: right;
+}
+.filterSex {
+    width: 40%;
+    height: 33%;
+    float: left;
+}
+.filterAge {
+    width: 60%;
+    height: 33%;
+    float: right;
+}
+.filterPosition {
+    width: 40%;
+    height: 33%;
+    float: left;
+}
+.filterSearch {
+    width: 60%;
+    height: 33%;
+    float: right;
+}
+.token01 {
+    position: relative;
+    float: left;
+    width: 120px;
+    height: 30px;
+    background-color: white;
+}
+.token01Img {
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 100%;
+    border: 1px solid black;
+}
+.token01Text {
+    position: relative;
+    border: 1px solid black;
+    float: right;
+    text-align: center;
+    color: black;
+    margin: auto;
+}
+seekbarTier {
+    position: relative;
+    width: 30%;
+    margin: 0 auto;
+}
+.buttonPosition {
+    position: relative;
+    width: 15%;
+    margin: 0 auto;
 }

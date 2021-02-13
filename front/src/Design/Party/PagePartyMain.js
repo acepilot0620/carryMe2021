@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './Styles.css';
+import {SearchModule} from '.';
 
 class PagePartyMain extends Component {
-    render () {
+    render() {
         return (
             <div
-                className = "pagePartyMain">파티 메인 페이지</div>
+                className="pagePartyMain">
+                <SearchModule></SearchModule>
+            </div>
         );
     }
 }

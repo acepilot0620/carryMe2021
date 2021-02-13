@@ -4,3 +4,4 @@ react-router-dom
 axios
 swiper
 @material-ui/core
+react-native
