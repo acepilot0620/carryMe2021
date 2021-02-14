@@ -30,7 +30,9 @@ class RankList extends Component {
         return (
             items.map((item) => (
                 <tr>
-                    <RankListItem></RankListItem>
+                    <td>
+                        <RankListItem></RankListItem>
+                    </td>
                 </tr>
             ))
         )

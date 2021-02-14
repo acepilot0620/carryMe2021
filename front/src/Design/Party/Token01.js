@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import './Styles.css';
 
 class Token01 extends Component {
-    render () {
+    render() {
         return (
             <div
-                className = "token01">
-                    <image
-                        className = "token01Img"></image>
-                    <p
-                        className = "token01Text">토큰</p>
+                className="token">
+                <img
+                    className = "tokenImg"
+                    src='/Image/tier_ex.png'></img>
+                <p
+                    className="tokenText">토큰</p>
             </div>
         );
     }

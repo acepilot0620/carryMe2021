@@ -30,7 +30,6 @@ class PartyList extends Component {
         return (
             <tr>
                 {
-
                     items.map((item) => (
                         <td>
                             <PartyListItem></PartyListItem>

@@ -1,36 +1,35 @@
-.hSection {
-    position: relative;
-    margin-top: 5%;
-}
 .lineDivide {
     position: relative;
-    margin-top: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     border: 1px solid #707070;
     width: 90%;
 }
 .pagePartyMain {
+    margin-top: 5%;
     color: #01DDD1;
 }
 .searchFilterModule {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
     align-content: left;
 }
 .searchResultModule {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
-    align-content: left;
+    width: 100%;
+    text-align: center;
 }
 .searchModule {
     position: relative;
     margin: 0 auto;
     width: 90%;
     height: 300px;
-    background-color: #5E5E5E;
 }
 .filterName {
     width: 40%;
@@ -62,27 +61,43 @@
     height: 33%;
     float: right;
 }
-.token01 {
+.tokenLong {
+    position: relative;
+    float: left;
+    width: 80%;
+    height: 30px;
+    border-radius: 30px;
+    background-color: white;
+}
+.token {
     position: relative;
     float: left;
     width: 120px;
     height: 30px;
+    border-radius: 30px;
     background-color: white;
 }
-.token01Img {
+.tokenImg {
     position: relative;
+    width: 30px;
+    height: 30px;
     float: left;
-    width: 25%;
-    height: 100%;
-    border: 1px solid black;
 }
-.token01Text {
+.tokenArrow {
+    width: 18px;
+    height: 15px;
+    line-height: 28px;
+    vertical-align: middle;
+}
+.tokenText {
     position: relative;
-    border: 1px solid black;
-    float: right;
-    text-align: center;
+    width: 90px;
+    height: 30px;
     color: black;
-    margin: auto;
+    float: left;
+    margin: 0;
+    text-align: center;
+    line-height: 28px;
 }
 seekbarTier {
     position: relative;
@@ -93,4 +108,49 @@ seekbarTier {
     position: relative;
     width: 15%;
     margin: 0 auto;
+}
+.itemParty {
+    display: inline-block;
+    margin: 2%;
+    width: 480px;
+    height: 200px;
+    background-color: #5E5E5E;
+}
+.itemPartyTitle {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.itemPartyTime {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding-bottom: 20px;
+    text-align: right;
+}
+.itemPartyUser {
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+}
+.itemPartyPosition {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    float: left;
+    margin: 0;
+    text-align: center;
+    line-height: 28px;
+
+}
+.itemPartyNick {
+    float: right;
+    line-height: 28px;
+    text-align: center;
+    margin: 0;
+    margin-right: 5px;
+    width: 50%;
+    height: 30px;
+    background-color: #3D4141;
+    border-radius: 5px;
 }

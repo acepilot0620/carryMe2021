@@ -14,7 +14,8 @@ class SearchModule extends Component {
                 className="searchModule">
                 <div className = "filterName">
                     <p>제목 필터</p>
-                    <input type="text"></input>
+                    <input type="text"
+                        className = "tokenLong"></input>
                 </div>
                 <div className = "filterTier">
                     <p>티어 필터</p>
@@ -94,6 +95,7 @@ class SearchModule extends Component {
                 </div>
                 <div className = "filterSearch">
                     <button
+                        className = "token"
                         style = {
                             {
                                 position: "relative",
