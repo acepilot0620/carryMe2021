@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { PageMain } from './Main';
-import { PagePartyMain } from './Party';
+import { PagePartyMain, PagePartyDetail } from './Party';
 import { PageLeagueMain} from './League';
 import './Styles.css';
 class Header extends Component {
@@ -16,6 +16,8 @@ class Header extends Component {
             render = {() => (<PagePartyMain></PagePartyMain>)}></Route>
           <Route exact path = '/league'
             render = {() => (<PageLeagueMain></PageLeagueMain>)}></Route>
+            <Route path = '/party/:partyTitle'
+            render = {({location}) => <PagePartyDetail partyInfo = {location.state.partyInfo}></PagePartyDetail>}></Route>
         </Router>
       </div>
     );

@@ -6,3 +6,4 @@ export {default as SearchFilterModule} from './SearchFilterModule';
 export {default as SearchResultModule} from './SearchResultModule';
 export {default as ItemParty} from './ItemParty';
 export {default as ItemPartyUser} from './ItemPartyUser';
+export {default as PagePartyDetail} from './PagePartyDetail';
