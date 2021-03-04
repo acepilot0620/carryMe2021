@@ -1,47 +1,37 @@
-import React, { Component } from 'react';
-import './Styles.css';
+import React, { useState } from "react";
+import "./Styles.css";
 
-class ItemPartyUser extends Component {
-    state = {
-        position: "",
-        tier: "",
-        nick: ""
-    }
-    componentWillMount() {
-        this.setState({
-            position: this.props.position,
-            tier: this.props.user.tier,
-            nick: this.props.user.nick
-        })
-    }
-    render() {
-        return (
-            <div
-                className = "itemPartyUser">
-                <p
-                    className = "itemPartyPosition"
-                    style = {
-                        {
-                            color: "inherit"
-                        }
-                    }>{this.state.position}</p>
-                {
-                    this.state.tier === ""
-                    ?(
-                        <img
-                            className = "tokenImg"
-                            src = '/Image/tier_blank.png'></img>
-                    )
-                    :(
-                        <img
-                            className = "tokenImg"
-                            src = '/Image/tier_ex.png'></img>
-                    )
-                }
-                <p
-                    className = "itemPartyNick">{this.state.nick}</p>
-            </div>
-        );
-    }
-}
+const ItemPartyUser = (props) => {
+  const [position, setPosition] = useState(props.position);
+  const [tier, setTier] = useState(props.tier);
+  const [nickname, setNickname] = useState(props.nick);
+
+  return (
+    <div className="itemPartyUser">
+      <p
+        className="itemPartyPosition"
+        style={{
+          color: "inherit",
+        }}
+      >
+        {position}
+      </p>
+      {tier === "" ? (
+        <img
+          className="tokenImg"
+          src="/Image/tier_blank.png"
+          alt="tier_image"
+        ></img>
+      ) : (
+        <img
+          className="tokenImg"
+          src="/Image/tier_ex.png"
+          alt="tier_image"
+        ></img>
+      )}
+      <p className="itemPartyNick">{nickname}</p>
+    </div>
+  );
+};
+
 export default ItemPartyUser;
