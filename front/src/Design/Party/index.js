@@ -6,4 +6,7 @@ export {default as SearchFilterModule} from './SearchFilterModule';
 export {default as SearchResultModule} from './SearchResultModule';
 export {default as ItemParty} from './ItemParty';
 export {default as ItemPartyUser} from './ItemPartyUser';
+export {default as ItemPartyUserDetail} from './ItemPartyUserDetail';
 export {default as PagePartyDetail} from './PagePartyDetail';
+export {default as LogChat} from './LogChat';
+export {default as ItemLogChat} from './ItemLogChat';
