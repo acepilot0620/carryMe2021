@@ -1,10 +1,15 @@
 import React from "react";
 import "./Styles.css";
+import Logo from "../SideBar/Logo.jsx";
+import Login from "../SideBar/Login.jsx";
+import SideBarList from "../SideBar/SideBarList";
 
 const SideBar = () => {
   return (
     <nav className="sideBar">
-      <p>사이드 바</p>
+      <Logo />
+      <Login />
+      <SideBarList />
     </nav>
   );
 };
