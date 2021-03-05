@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./Styles.css";
 
-const ItemPartyUser = (props) => {
+const ItemPartyUserDetail = (props) => {
   const [position, setPosition] = useState(props.position);
   const [tier, setTier] = useState(props.tier);
   const [nickname, setNickname] = useState(props.nick);
 
   return (
-    <div className="itemPartyUser">
+    <div className="itemPartyUserDetail">
       <p
         className="itemPartyPosition"
         style={{
@@ -29,9 +29,10 @@ const ItemPartyUser = (props) => {
           alt="tier_image"
         ></img>
       )}
+      <p className="itemPartyAdd">친구 추가</p>
       <p className="itemPartyNick">{nickname}</p>
     </div>
   );
 };
 
-export default ItemPartyUser;
+export default ItemPartyUserDetail;

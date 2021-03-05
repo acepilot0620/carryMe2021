@@ -1,36 +1,22 @@
-import React, { Component } from 'react';
-import './Styles.css';
-import { ItemParty } from '.';
+import React, { useState } from "react";
+import "./Styles.css";
+import { ItemParty } from ".";
 
-class SearchResultModule extends Component {
-    state = {
-        parties: [
-            "하나",
-            "둘",
-            "셋",
-            "넷",
-            "다섯",
-            "여섯",
-            "일곱"
-        ]
-    }
-    spawnParties = () => {
-        const { parties } = this.state;
-        return (
-            parties.map((value, index) => (
-                <ItemParty title={value}></ItemParty>
-            ))
-        );
-    }
+const SearchResultModule = (props) => {
+  const [parties, setParties] = useState([
+    "하나",
+    "둘",
+    "셋",
+    "넷",
+    "다섯",
+    "여섯",
+    "일곱",
+  ]);
 
-    render() {
-        return (
-            <div
-                className="searchResultModule">
-                {this.spawnParties()}
-            </div>
-        );
-    }
-}
+  const spawnParties = () => {
+    return parties.map((value, index) => <ItemParty title={value} />);
+  };
+  return <div className="searchResultModule">{spawnParties()}</div>;
+};
 
 export default SearchResultModule;

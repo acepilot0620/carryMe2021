@@ -1,26 +1,13 @@
-import React, { Component } from 'react';
-import './Styles.css';
+import React, { useState } from "react";
+import "./Styles.css";
 
-class BannerSwiperItem extends Component {
+const SwiperBannerItem = (props) => {
+  const [banner, setBanner] = useState(props.url);
+  return (
+    <div className="bannerSwiperItem">
+      <p>예시: {banner}</p>
+    </div>
+  );
+};
 
-    state = {
-        url: "",
-    }
-    componentWillMount() {
-        this.setState(
-            {
-                url: this.props.url
-            }
-        );
-    }
-
-    render() {
-        return (
-            <div
-                className="bannerSwiperItem">
-                <p>예시: {this.state.url}</p>
-            </div>
-        );
-    }
-}
-export default BannerSwiperItem;
+export default SwiperBannerItem;

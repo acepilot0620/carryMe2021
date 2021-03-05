@@ -10,7 +10,7 @@
     color: #01DDD1;
 }
 .pagePartyDetail {
-    margin-top: 5%;
+    margin-top: 40px;
     color: #01DDD1;
 }
 .searchFilterModule {
@@ -18,6 +18,15 @@
     margin-left: auto;
     margin-right: auto;
     width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-content: left;
+}
+.detailOverall {
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-content: left;
@@ -137,6 +146,13 @@ seekbarTier {
     height: 40px;
     margin-top: 15px;
 }
+.itemPartyUserDetail {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 40px;
+    margin-top: 15px;
+}
 .itemPartyPosition {
     position: relative;
     width: 60px;
@@ -156,5 +172,77 @@ seekbarTier {
     width: 50%;
     height: 30px;
     background-color: #3D4141;
+    border-radius: 5px;
+}
+.itemPartyAdd {
+    float: right;
+    line-height: 28px;
+    text-align: center;
+    margin: 0;
+    margin-right: 5px;
+    width: 20%;
+    height: 30px;
+    background-color: #3D4141;
+    border-radius: 5px;
+}
+.logChat {
+    background-color: #3D4141;
+    margin-left: 15%;   
+    width: 70%;
+    height: 500px;
+}
+.itemLogChat {
+    position: relative;
+    margin-left: 5%;   
+    width: 70%;
+    height: 120px;
+}
+.itemLogTyping {
+    background-color: ivory;
+    height: 100px;
+}
+.buttonItemLogTyping {
+    position: relative;
+    float: right;
+    width: 15%;
+    margin-right: 10px;
+}
+.inputItemLogTyping {
+    position: relative;
+    width: 80%;
+}
+.itemLogChatNick {
+    position: absolute;
+    text-align: center;
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+    background-color: #2e3131;
+    border-radius: 5px;
+}
+.itemLogChatTime {
+    position: absolute;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 640px;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+}
+.itemLogChatText {
+    position: absolute;
+    margin-top: 50px;
+    width: 800px;
+    height: 70px;
+    background-color: #2e3131;
+    border-radius: 5px;
+}
+.itemLogChatAlert {
+    position: absolute;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 720px;
+    width: 80px;
+    height: 30px;
     border-radius: 5px;
 }

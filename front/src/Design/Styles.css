@@ -1,6 +1,7 @@
 .header {
     background-color: #091B2E;
-    float: right;
-    width: 70%;
+    margin-left: 300px;
+    position: absolute;
+    width: 1320px;
     height: 2000px;
 }

@@ -1,30 +1,19 @@
-import React, { Component } from 'react';
-import './Styles.css';
+import React, { useState } from "react";
+import "./Styles.css";
 
-class Token02 extends Component {
-    state = {
-        type: ""
-    }
+const Token02 = (props) => {
+  const [type, setType] = useState(props.type);
 
-    componentWillMount() {
-        this.setState(
-            {
-                type: this.props.type
-            }
-        )
-    }
-
-    render() {
-        return (
-            <div
-                className = "token">
-                <p className = "tokenText">{this.state.type}</p>
-                <img
-                    className = "tokenArrow"
-                    src = '/Image/filter_up.png'></img>
-            </div>
-        );
-    }
-}
+  return (
+    <div className="token">
+      <p className="tokenText">{type}</p>
+      <img
+        className="tokenArrow"
+        src="/Image/filter_up.png"
+        alt="token_arrow"
+      ></img>
+    </div>
+  );
+};
 
 export default Token02;
