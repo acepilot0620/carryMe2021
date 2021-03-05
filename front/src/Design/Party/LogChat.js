@@ -10,12 +10,20 @@ const LogChat = (props) => {
 
     return (
         <div className="logChat">
-            <div>
+            <div style = {{
+                overflow: "auto",
+                height: "400px"
+            }}>
+                <ItemLogChat></ItemLogChat>
+                <ItemLogChat></ItemLogChat>
                 <ItemLogChat></ItemLogChat>
                 <ItemLogChat></ItemLogChat>
                 <ItemLogChat></ItemLogChat>
             </div>
-            <div className = "itemLogTyping">작성 공간</div>
+            <div className = "itemLogTyping">
+                <input className="inputItemLogTyping" type="text"></input>
+                <button className = "buttonItemLogTyping">전송</button>
+            </div>
         </div>
     );
 };

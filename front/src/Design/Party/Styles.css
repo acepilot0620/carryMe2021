@@ -192,12 +192,24 @@ seekbarTier {
     height: 500px;
 }
 .itemLogChat {
+    position: relative;
     margin-left: 5%;   
     width: 70%;
     height: 120px;
 }
 .itemLogTyping {
-    margin-left: 5%;
+    background-color: ivory;
+    height: 100px;
+}
+.buttonItemLogTyping {
+    position: relative;
+    float: right;
+    width: 15%;
+    margin-right: 10px;
+}
+.inputItemLogTyping {
+    position: relative;
+    width: 80%;
 }
 .itemLogChatNick {
     position: absolute;
