@@ -38,12 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', #all-auth 설정에 사용
     #local apps
     'account',
     'main',
     'game',
     #third party apps
     'rest_framework',
+    'allauth',
+    'allauth.account', # 가입한 계정 관리
+    'allauth.socialaccount', # 소셜 계정으로 가입한 계정 관리
+    'allauth.socialaccount.providers.naver', # 어떤 소셜 서비스를 사용하는지 추가
 ]
 
 MIDDLEWARE = [

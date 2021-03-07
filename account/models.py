@@ -5,7 +5,7 @@ from game.models import User_Game
 # Create your models here.
 
 class Account(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    django_user = models.OneToOneField(User, on_delete=models.CASCADE)
     nickname = models.CharField(verbose_name="닉네임", max_length=50,unique=True)
     school = models.CharField(verbose_name="학교 이름", max_length=50)
     game = models.ForeignKey(User_Game, verbose_name="게임", on_delete=models.CASCADE)

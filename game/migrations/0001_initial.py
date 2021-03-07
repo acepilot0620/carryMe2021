@@ -12,13 +12,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Party',
+            name='User_Game',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('pub_date', models.DateTimeField(auto_now=True)),
-                ('capacity', models.PositiveSmallIntegerField()),
-                ('how_many_now', models.PositiveSmallIntegerField()),
+                ('game_name', models.CharField(max_length=100, verbose_name='게임명')),
+                ('game_id', models.CharField(max_length=100, verbose_name='게임내 유저명')),
+                ('tier', models.CharField(max_length=100, verbose_name='티어')),
             ],
         ),
     ]
