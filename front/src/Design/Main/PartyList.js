@@ -1,23 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { PartyListItem } from ".";
 import "./Styles.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const PartyList = (props) => {
-  const [parties, setParties] = useState([
-    "파티 1",
-    "파티 2",
-    "파티 3",
-    "파티 4",
-  ]);
-
+const PartyList = ({ parties }) => {
   const renderLists = () => {
-    const items = parties;
     return (
       <tr>
-        {items.map((item) => (
+        {parties.map((party) => (
           <td>
-            <PartyListItem />
+            <PartyListItem party={party} />
           </td>
         ))}
       </tr>
@@ -31,10 +23,7 @@ const PartyList = (props) => {
         더 보기
       </Link>
       <table>
-        <tbody>
-          {renderLists()}
-          {renderLists()}
-        </tbody>
+        <tbody>{renderLists()}</tbody>
       </table>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 import "./Styles.css";
 
-const PartyListItem = (props) => {
-  return <div className="partyListItem">파티 아이템</div>;
+const PartyListItem = ({ party }) => {
+  return <div className="partyListItem">{party}</div>;
 };
 
 export default PartyListItem;

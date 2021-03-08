@@ -1,8 +1,8 @@
 import React from "react";
 import "./Styles.css";
 
-const LeagueListItem = () => {
-  return <div className="leagueListItem">리그 아이템</div>;
+const LeagueListItem = ({ league }) => {
+  return <div className="leagueListItem">{league}</div>;
 };
 
 export default LeagueListItem;

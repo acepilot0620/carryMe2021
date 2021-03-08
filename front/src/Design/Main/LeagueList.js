@@ -3,20 +3,13 @@ import { LeagueListItem } from ".";
 import "./Styles.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const LeagueList = () => {
-  const [contests, setContests] = useState([
-    "대회 1",
-    "대회 2",
-    "대회 3",
-    "대회 4",
-  ]);
+const LeagueList = ({ leagues }) => {
   const renderLists = () => {
-    const items = contests;
     return (
       <tr>
-        {items.map((item) => (
+        {leagues.map((league) => (
           <td>
-            <LeagueListItem />
+            <LeagueListItem league={league} />
           </td>
         ))}
       </tr>
@@ -29,10 +22,7 @@ const LeagueList = () => {
         더 보기
       </Link>
       <table>
-        <tbody>
-          {renderLists()}
-          {renderLists()}
-        </tbody>
+        <tbody>{renderLists()}</tbody>
       </table>
     </div>
   );
