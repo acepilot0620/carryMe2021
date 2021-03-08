@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Styles.css";
 
-const SwiperBannerItem = (props) => {
-  const [banner, setBanner] = useState(props.url);
+const SwiperBannerItem = ({ url }) => {
+  const [banner, setBanner] = useState(url);
   return (
     <div className="bannerSwiperItem">
       <p>예시: {banner}</p>
