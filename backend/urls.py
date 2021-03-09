@@ -3,14 +3,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
 
-
 urlpatterns = [
-    path('api-auth/',include('rest_framework.urls')),
-    path('accounts/',include('allauth.urls')) #소셜로그인 
+    #admin
     path('admin/', admin.site.urls),
-    path('',include('main.urls')),
-    path('account/',include('account.urls')),
-    path('game/',include('game.urls')),
+    path('api-auth/',include('rest_framework.urls')),
+    #로그인 관련
+    path('accounts/', include('rest_auth.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('accounts/',include('account.urls')),
 ]
 
 if settings.DEBUG:

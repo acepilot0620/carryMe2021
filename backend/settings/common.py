@@ -12,10 +12,19 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from os.path import abspath,dirname,join
+from pathlib import Path
+import json
+import sys
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
+ROOT_DIR = os.path.dirname(BASE_DIR)
+SECRET_BASE_FILE = os.path.join(BASE_DIR, 'secret.json')
 
+secrets = json.loads(open(SECRET_BASE_FILE).read())
+for key, value in secrets.items():
+    setattr(sys.modules[__name__], key, value)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -38,18 +47,42 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites', #all-auth 설정에 사용
+    
     #local apps
     'account',
+    'django.contrib.sites',
     'main',
     'game',
     #third party apps
+    #django rest auth
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+
+    # django-allauth
     'allauth',
-    'allauth.account', # 가입한 계정 관리
-    'allauth.socialaccount', # 소셜 계정으로 가입한 계정 관리
-    'allauth.socialaccount.providers.naver', # 어떤 소셜 서비스를 사용하는지 추가
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.kakao',
+    'allauth.socialaccount.providers.google',   
 ]
+
+SITE_ID = 1
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+}
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
