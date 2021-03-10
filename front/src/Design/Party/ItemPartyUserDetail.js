@@ -3,8 +3,8 @@ import "./Styles.css";
 
 const ItemPartyUserDetail = (props) => {
   const [position, setPosition] = useState(props.position);
-  const [tier, setTier] = useState(props.tier);
-  const [nickname, setNickname] = useState(props.nick);
+  const [tier, setTier] = useState(props.user.tier);
+  const [nickname, setNickname] = useState(props.user.nick);
 
   return (
     <div className="itemPartyUserDetail">
