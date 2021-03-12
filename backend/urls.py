@@ -10,7 +10,7 @@ urlpatterns = [
     #로그인 관련
     path('accounts/', include('rest_auth.urls')),
     path('accounts/', include('allauth.urls')),
-    path('accounts/',include('account.urls')),
+    path('accounts/',include('accounts.urls')),
 ]
 
 if settings.DEBUG:

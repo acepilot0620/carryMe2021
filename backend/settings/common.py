@@ -28,8 +28,6 @@ for key, value in secrets.items():
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's93gcrkfdb8yl!xi!f%li+gz^t2)regd*w^&^q0)3_v(@^o!ec'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -49,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     #local apps
-    'account',
+    'accounts',
     'django.contrib.sites',
     'main',
     'game',
@@ -128,6 +126,9 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
+
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
