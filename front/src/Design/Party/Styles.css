@@ -45,34 +45,29 @@
     height: 300px;
 }
 .filterName {
-    width: 40%;
+    width: 50%;
     height: 33%;
     float: left;
 }
 .filterTier {
-    width: 60%;
+    width: 50%;
     height: 33%;
     float: right;
 }
 .filterSex {
-    width: 40%;
+    width: 50%;
     height: 33%;
     float: left;
 }
 .filterAge {
-    width: 60%;
+    width: 50%;
     height: 33%;
     float: right;
 }
 .filterPosition {
-    width: 40%;
+    width: 70%;
     height: 33%;
     float: left;
-}
-.filterSearch {
-    width: 60%;
-    height: 33%;
-    float: right;
 }
 .tokenLong {
     position: relative;
@@ -117,10 +112,13 @@ seekbarTier {
     width: 30%;
     margin: 0 auto;
 }
-.buttonPosition {
+.divPosition {
+    text-align: center;
+    display: inline-block;
     position: relative;
-    width: 15%;
-    margin: 0 auto;
+    margin-left: 4%;
+    width: 70px;
+    height: 40px;
 }
 .itemParty {
     display: inline-block;

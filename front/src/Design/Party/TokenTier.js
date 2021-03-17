@@ -1,13 +1,13 @@
 import React from "react";
 import "./Styles.css";
 
-const Token01 = (props) => {
+const TokenTier = (props) => {
   return (
     <div className="token">
       <img className="tokenImg" src="/Image/tier_ex.png" alt="tier_img"></img>
-      <p className="tokenText">토큰</p>
+      <p className="tokenText">{props.tier}</p>
     </div>
   );
 };
 
-export default Token01;
+export default TokenTier;

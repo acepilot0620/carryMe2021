@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Styles.css";
-import {Token01, ItemPartyUserDetail, LogChat} from '.';
+import {TokenTier, ItemPartyUserDetail, LogChat} from '.';
 
 const PagePartyDetail = (props) => {
 
@@ -13,14 +13,14 @@ const PagePartyDetail = (props) => {
       <p style = {{marginLeft: "5%"}}>방 제목{partyInfo.title}</p>
       <div className = "detailOverall" style ={{marginLeft: "0%", marginRight: "0%", width: "95%"}}>
         <div className = "detailOverall">
-          <Token01/>
-          <Token01/>
+          <TokenTier/>
+          <TokenTier/>
         </div>
         <div className = "detailOverall">
-          <Token01/>
-          <Token01/>
+          <TokenTier/>
+          <TokenTier/>
         </div>
-        <Token01/>
+        <TokenTier/>
       </div>
       <hr className="lineDivide"></hr>
       <div style ={{marginLeft: "5%", marginRight: "5%", width: "90%", height: "240px"}}>
