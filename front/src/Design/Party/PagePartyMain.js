@@ -94,6 +94,7 @@ const PagePartyMain = (props) => {
   let [checkedSex, setCheckedSex] = useState("any");
 
   const clickSearch = () => {
+    console.log('파티 검색 인자: -------------');
     console.log('title: ' + title);
     console.log('sex: ' + checkedSex);
     console.log('selectedTierMax: ' + selectedTierMax);
@@ -102,6 +103,23 @@ const PagePartyMain = (props) => {
     console.log('selectedAgeMin: ' + selectedAgeMin);
     console.log('checkedPosition: ' + checkedPosition);
   };
+  
+  const clickCreate = () => {
+    if (title === undefined) {
+      // 경고 창 또는 경고 메세지 화면에 출력해야 함
+      console.log('제목을 입력해주세요!');
+    } else {
+      console.log('파티 생성 인자: -------------');
+      console.log('title: ' + title);
+      console.log('sex: ' + checkedSex);
+      console.log('selectedTierMax: ' + selectedTierMax);
+      console.log('selectedTierMin: ' + selectedTierMin);
+      console.log('selectedAgeMax: ' + selectedAgeMax);
+      console.log('selectedAgeMin: ' + selectedAgeMin);
+      console.log('checkedPosition: ' + checkedPosition);
+    }
+  };
+
   const spawnParties = () => {
     return parties.map((value, index) => <ItemParty title={value} />);
   };
@@ -112,11 +130,11 @@ const PagePartyMain = (props) => {
         <h3 className="hSection">파티 메인 페이지</h3>
         <div className="searchModule">
           <div className="filterName">
-            <p>제목 필터</p>
+            <h4>제목</h4>
             <input type="text" className="tokenLong" onChange = {(e) => {setTitle(e.target.value)}}></input>
           </div>
           <div className="filterTier">
-            <p>티어 필터</p>
+            <h4>티어</h4>
             <TokenTier tier = {selectedTierMin} />
             <Slider
               style={{
@@ -133,7 +151,7 @@ const PagePartyMain = (props) => {
             <TokenTier tier = {selectedTierMax} />
           </div>
           <div className="filterSex">
-            <p>성별 필터</p>
+            <h4>성별</h4>
             <input
               type="radio"
               name = "sex"
@@ -184,7 +202,7 @@ const PagePartyMain = (props) => {
             </p>
           </div>
           <div className="filterAge">
-            <p>나이 필터</p>
+            <h4>나이</h4>
             <TokenAge age = {selectedAgeMin}/>
             <Slider
               style={{
@@ -201,7 +219,7 @@ const PagePartyMain = (props) => {
             <TokenAge age = {selectedAgeMax}/>
           </div>
           <div className="filterPosition">
-            <p>포지션 필터</p>
+            <h4>포지션</h4>
             <div className="divPosition"
             id = "position_top"
             onClick = {() => clickPosition("top")}
@@ -243,6 +261,16 @@ const PagePartyMain = (props) => {
               onClick = {clickSearch}
             >
               검색
+            </button>
+            <button
+              className="token"
+              style={{
+                position: "relative",
+                float: "right",
+              }}
+              onClick = {clickCreate}
+            >
+              파티 생성
             </button>
           </div>
         </div>
