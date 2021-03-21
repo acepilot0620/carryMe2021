@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Styles.css";
 import { TokenTier, TokenAge, Token02, ItemParty } from ".";
 import Slider from "@material-ui/core/Slider";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const PagePartyMain = (props) => {
   
@@ -42,6 +43,8 @@ const PagePartyMain = (props) => {
   const selectTier = (min, max) => {
     setSelectedTierMin(tierList[min]);
     setSelectedTierMax(tierList[max]);
+    partyInfo.tierMax = tierList[max];
+    partyInfo.tierMin = tierList[min];
   };
 
   const [ageRange, setAgeRange] = useState({
@@ -68,6 +71,8 @@ const PagePartyMain = (props) => {
   const selectAge = (min, max) => {
     setSelectedAgeMin(ageList[min]);
     setSelectedAgeMax(ageList[max]);
+    partyInfo.ageMax = ageList[max];
+    partyInfo.ageMin = ageList[min];
   };
 
   const [checkedPosition, setCheckedPosition] = useState({
@@ -82,16 +87,56 @@ const PagePartyMain = (props) => {
     if (checkedPosition[position] === true) {
       document.getElementById("position_" + position).style.backgroundImage = `url(${process.env.PUBLIC_URL + '/Image/buttonPositionOff.png'})`;
       newCheckedPosition[position] = false;
+      partyInfo[position] = 0;
     } else {
       document.getElementById("position_" + position).style.backgroundImage = `url(${process.env.PUBLIC_URL + '/Image/buttonPositionOn.png'})`;
       newCheckedPosition[position] = true;
+      partyInfo[position] = {tier: "", nick: ""};
     }
     setCheckedPosition(newCheckedPosition);
   };
 
   const [title, setTitle] = useState();
 
-  let [checkedSex, setCheckedSex] = useState("any");
+  const typeTitle = (title) => {
+    setTitle(title);
+    partyInfo.title = title;
+  }
+
+  let [checkedSex, setCheckedSex] = useState("상관없음");
+
+  
+  let [partyInfo] = useState({
+    title: "새로운 파티",
+    time: 0,
+    user: {
+      top: {
+        tier: "다이아",
+        nick: "본인",
+      },
+      mid: {
+        tier: "",
+        nick: "",
+      },
+      jgl: {
+        tier: "",
+        nick: "",
+      },
+      adc: {
+        tier: "",
+        nick: "",
+      },
+      sup: {
+        tier: "",
+        nick: "",
+      },
+    },
+    sex: "상관없음",
+    ageMax: "31세 이상",
+    ageMin: "19세 이하",
+    tierMax: "챌린저",
+    tierMin: "아이언"
+  });
 
   const clickSearch = () => {
     console.log('파티 검색 인자: -------------');
@@ -102,22 +147,6 @@ const PagePartyMain = (props) => {
     console.log('selectedAgeMax: ' + selectedAgeMax);
     console.log('selectedAgeMin: ' + selectedAgeMin);
     console.log('checkedPosition: ' + checkedPosition);
-  };
-  
-  const clickCreate = () => {
-    if (title === undefined) {
-      // 경고 창 또는 경고 메세지 화면에 출력해야 함
-      console.log('제목을 입력해주세요!');
-    } else {
-      console.log('파티 생성 인자: -------------');
-      console.log('title: ' + title);
-      console.log('sex: ' + checkedSex);
-      console.log('selectedTierMax: ' + selectedTierMax);
-      console.log('selectedTierMin: ' + selectedTierMin);
-      console.log('selectedAgeMax: ' + selectedAgeMax);
-      console.log('selectedAgeMin: ' + selectedAgeMin);
-      console.log('checkedPosition: ' + checkedPosition);
-    }
   };
 
   const spawnParties = () => {
@@ -131,7 +160,7 @@ const PagePartyMain = (props) => {
         <div className="searchModule">
           <div className="filterName">
             <h4>제목</h4>
-            <input type="text" className="tokenLong" onChange = {(e) => {setTitle(e.target.value)}}></input>
+            <input type="text" className="tokenLong" onChange = {(e) => {typeTitle(e.target.value)}}></input>
           </div>
           <div className="filterTier">
             <h4>티어</h4>
@@ -155,7 +184,7 @@ const PagePartyMain = (props) => {
             <input
               type="radio"
               name = "sex"
-              value= "maleOnly"
+              value= "남자만"
               style={{
                 display: "inline",
               }}
@@ -171,7 +200,7 @@ const PagePartyMain = (props) => {
             <input
               type="radio"
               name = "sex"
-              value= "femaleOnly"
+              value= "여자만"
               style={{
                 display: "inline",
               }}
@@ -187,7 +216,7 @@ const PagePartyMain = (props) => {
             <input
               type="radio"
               name = "sex"
-              value= "any"
+              value= "상관없음"
               style={{
                 display: "inline",
               }}
@@ -262,16 +291,16 @@ const PagePartyMain = (props) => {
             >
               검색
             </button>
-            <button
-              className="token"
-              style={{
-                position: "relative",
-                float: "right",
+            <Link
+              to={{
+                pathname: "/party/" + partyInfo.title,
+                state: {
+                  partyInfo: partyInfo,
+                },
               }}
-              onClick = {clickCreate}
             >
               파티 생성
-            </button>
+            </Link>
           </div>
         </div>
       </div>

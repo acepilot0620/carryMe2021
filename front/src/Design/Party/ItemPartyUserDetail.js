@@ -29,7 +29,11 @@ const ItemPartyUserDetail = (props) => {
           alt="tier_image"
         ></img>
       )}
-      <p className="itemPartyAdd">친구 추가</p>
+      {
+        nickname === "" 
+        ? <p className="itemPartyAdd"></p>
+        : <p className="itemPartyAdd">친구 추가</p>
+      }
       <p className="itemPartyNick">{nickname}</p>
     </div>
   );
