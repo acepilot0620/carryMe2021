@@ -5,13 +5,12 @@ import Slider from "@material-ui/core/Slider";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const PagePartyMain = (props) => {
-  
-  const [searchFilterModule, setSearchFilterModule] = useState({
+  const searchFilterModule = {
     1: "현재 인원",
     2: "평균 티어",
     3: "최고 티어",
     4: "생성 시간",
-  });
+  };
 
   const [parties, setParties] = useState([
     "하나",
@@ -23,13 +22,12 @@ const PagePartyMain = (props) => {
     "일곱",
   ]);
 
-  const [tierRange, setTierRange] = useState({
+  const tierRange = {
     max: 8,
-    min: 0
-  });
-  const [selectedTierMin, setSelectedTierMin] = useState("아이언");
-  const [selectedTierMax, setSelectedTierMax] = useState("챌린저");
-  const [tierList] = useState({
+    min: 0,
+  };
+
+  const tierList = {
     0: "아이언",
     1: "브론즈",
     2: "실버",
@@ -38,22 +36,15 @@ const PagePartyMain = (props) => {
     5: "다이아",
     6: "마스터",
     7: "그랜드마스터",
-    8: "챌린저"
-  });
-  const selectTier = (min, max) => {
-    setSelectedTierMin(tierList[min]);
-    setSelectedTierMax(tierList[max]);
-    partyInfo.tierMax = tierList[max];
-    partyInfo.tierMin = tierList[min];
+    8: "챌린저",
   };
 
-  const [ageRange, setAgeRange] = useState({
+  const ageRange = {
     max: 12,
-    min: 0
-  });
-  const [selectedAgeMin, setSelectedAgeMin] = useState("19세 이하");
-  const [selectedAgeMax, setSelectedAgeMax] = useState("31세 이상");
-  const [ageList, setAgeList] = useState({
+    min: 0,
+  };
+
+  const ageList = {
     0: "19세 이하",
     1: "20세",
     2: "21세",
@@ -66,13 +57,7 @@ const PagePartyMain = (props) => {
     9: "28세",
     10: "29세",
     11: "30세",
-    12: "31세 이상"
-  });
-  const selectAge = (min, max) => {
-    setSelectedAgeMin(ageList[min]);
-    setSelectedAgeMax(ageList[max]);
-    partyInfo.ageMax = ageList[max];
-    partyInfo.ageMin = ageList[min];
+    12: "31세 이상",
   };
 
   const [checkedPosition, setCheckedPosition] = useState({
@@ -80,33 +65,32 @@ const PagePartyMain = (props) => {
     jgl: false,
     mid: false,
     adc: false,
-    sup: false
+    sup: false,
   });
+
   const clickPosition = (position) => {
     let newCheckedPosition = checkedPosition;
     if (checkedPosition[position] === true) {
-      document.getElementById("position_" + position).style.backgroundImage = `url(${process.env.PUBLIC_URL + '/Image/buttonPositionOff.png'})`;
+      document.getElementById(
+        "position_" + position
+      ).style.backgroundImage = `url(${
+        process.env.PUBLIC_URL + "/Image/buttonPositionOff.png"
+      })`;
       newCheckedPosition[position] = false;
       partyInfo[position] = 0;
     } else {
-      document.getElementById("position_" + position).style.backgroundImage = `url(${process.env.PUBLIC_URL + '/Image/buttonPositionOn.png'})`;
+      document.getElementById(
+        "position_" + position
+      ).style.backgroundImage = `url(${
+        process.env.PUBLIC_URL + "/Image/buttonPositionOn.png"
+      })`;
       newCheckedPosition[position] = true;
-      partyInfo[position] = {tier: "", nick: ""};
+      partyInfo[position] = { tier: "", nick: "" };
     }
     setCheckedPosition(newCheckedPosition);
   };
 
-  const [title, setTitle] = useState();
-
-  const typeTitle = (title) => {
-    setTitle(title);
-    partyInfo.title = title;
-  }
-
-  let [checkedSex, setCheckedSex] = useState("상관없음");
-
-  
-  let [partyInfo] = useState({
+  const [partyInfo, setPartyInfo] = useState({
     title: "새로운 파티",
     time: 0,
     user: {
@@ -135,18 +119,18 @@ const PagePartyMain = (props) => {
     ageMax: "31세 이상",
     ageMin: "19세 이하",
     tierMax: "챌린저",
-    tierMin: "아이언"
+    tierMin: "아이언",
   });
 
   const clickSearch = () => {
-    console.log('파티 검색 인자: -------------');
-    console.log('title: ' + title);
-    console.log('sex: ' + checkedSex);
-    console.log('selectedTierMax: ' + selectedTierMax);
-    console.log('selectedTierMin: ' + selectedTierMin);
-    console.log('selectedAgeMax: ' + selectedAgeMax);
-    console.log('selectedAgeMin: ' + selectedAgeMin);
-    console.log('checkedPosition: ' + checkedPosition);
+    console.log("파티 검색 인자: -------------");
+    console.log("title: " + partyInfo.title);
+    console.log("sex: " + partyInfo.sex);
+    console.log("selectedTierMax: " + partyInfo.tierMax);
+    console.log("selectedTierMin: " + partyInfo.tierMin);
+    console.log("selectedAgeMax: " + partyInfo.ageMax);
+    console.log("selectedAgeMin: " + partyInfo.ageMin);
+    console.log("checkedPosition: " + checkedPosition);
   };
 
   const spawnParties = () => {
@@ -160,11 +144,17 @@ const PagePartyMain = (props) => {
         <div className="searchModule">
           <div className="filterName">
             <h4>제목</h4>
-            <input type="text" className="tokenLong" onChange = {(e) => {typeTitle(e.target.value)}}></input>
+            <input
+              type="text"
+              className="tokenLong"
+              onChange={(e) => {
+                setPartyInfo({ ...partyInfo, title: e.target.value });
+              }}
+            ></input>
           </div>
           <div className="filterTier">
             <h4>티어</h4>
-            <TokenTier tier = {selectedTierMin} />
+            <TokenTier tier={partyInfo.tierMin} />
             <Slider
               style={{
                 position: "relative",
@@ -172,23 +162,31 @@ const PagePartyMain = (props) => {
                 width: "30%",
                 margin: "0 auto",
               }}
-              onChange = {(e, newValue) => {selectTier(newValue[0], newValue[1])}}
-              defaultValue = {[tierRange.min, tierRange.max]}
-              max = {tierRange.max}
-              min = {tierRange.min}
+              onChange={(e, newValue) => {
+                setPartyInfo({
+                  ...partyInfo,
+                  tierMin: tierList[newValue[0]],
+                  tierMax: tierList[newValue[1]],
+                });
+              }}
+              defaultValue={[tierRange.min, tierRange.max]}
+              max={tierRange.max}
+              min={tierRange.min}
             />
-            <TokenTier tier = {selectedTierMax} />
+            <TokenTier tier={partyInfo.tierMax} />
           </div>
           <div className="filterSex">
             <h4>성별</h4>
             <input
               type="radio"
-              name = "sex"
-              value= "남자만"
+              name="sex"
+              value="남자만"
               style={{
                 display: "inline",
               }}
-              onClick = {(e) => {setCheckedSex(e.target.value)}}
+              onClick={(e) => {
+                setPartyInfo({ ...partyInfo, sex: e.target.value });
+              }}
             ></input>
             <p
               style={{
@@ -199,12 +197,14 @@ const PagePartyMain = (props) => {
             </p>
             <input
               type="radio"
-              name = "sex"
-              value= "여자만"
+              name="sex"
+              value="여자만"
               style={{
                 display: "inline",
               }}
-              onClick = {(e) => {setCheckedSex(e.target.value)}}
+              onClick={(e) => {
+                setPartyInfo({ ...partyInfo, sex: e.target.value });
+              }}
             ></input>
             <p
               style={{
@@ -215,12 +215,14 @@ const PagePartyMain = (props) => {
             </p>
             <input
               type="radio"
-              name = "sex"
-              value= "상관없음"
+              name="sex"
+              value="상관없음"
               style={{
                 display: "inline",
               }}
-              onClick = {(e) => {setCheckedSex(e.target.value)}}
+              onClick={(e) => {
+                setPartyInfo({ ...partyInfo, sex: e.target.value });
+              }}
             ></input>
             <p
               style={{
@@ -232,7 +234,7 @@ const PagePartyMain = (props) => {
           </div>
           <div className="filterAge">
             <h4>나이</h4>
-            <TokenAge age = {selectedAgeMin}/>
+            <TokenAge age={partyInfo.ageMin} />
             <Slider
               style={{
                 position: "relative",
@@ -240,44 +242,80 @@ const PagePartyMain = (props) => {
                 width: "30%",
                 margin: "0 auto",
               }}
-              onChange = {(e, newValue) => {selectAge(newValue[0], newValue[1])}}
-              defaultValue = {[ageRange.min, ageRange.max]}
-              max = {ageRange.max}
-              min = {ageRange.min}
+              onChange={(e, newValue) => {
+                setPartyInfo({
+                  ...partyInfo,
+                  ageMin: ageList[newValue[0]],
+                  ageMax: ageList[newValue[1]],
+                });
+              }}
+              defaultValue={[ageRange.min, ageRange.max]}
+              max={ageRange.max}
+              min={ageRange.min}
             />
-            <TokenAge age = {selectedAgeMax}/>
+            <TokenAge age={partyInfo.ageMax} />
           </div>
           <div className="filterPosition">
             <h4>포지션</h4>
-            <div className="divPosition"
-            id = "position_top"
-            onClick = {() => clickPosition("top")}
-            style = {{backgroundImage: `url(${process.env.PUBLIC_URL + '/Image/buttonPositionOff.png'})`}}>
-              <p style ={{marginTop: "9px", marginBottom: "10px"}}>TOP</p>
+            <div
+              className="divPosition"
+              id="position_top"
+              onClick={() => clickPosition("top")}
+              style={{
+                backgroundImage: `url(${
+                  process.env.PUBLIC_URL + "/Image/buttonPositionOff.png"
+                })`,
+              }}
+            >
+              <p style={{ marginTop: "9px", marginBottom: "10px" }}>TOP</p>
             </div>
-            <div className="divPosition"
-            id = "position_jgl"
-            onClick = {() => clickPosition("jgl")}
-            style = {{backgroundImage: `url(${process.env.PUBLIC_URL + '/Image/buttonPositionOff.png'})`}}>
-              <p style ={{marginTop: "9px", marginBottom: "10px"}}>JGL</p>
+            <div
+              className="divPosition"
+              id="position_jgl"
+              onClick={() => clickPosition("jgl")}
+              style={{
+                backgroundImage: `url(${
+                  process.env.PUBLIC_URL + "/Image/buttonPositionOff.png"
+                })`,
+              }}
+            >
+              <p style={{ marginTop: "9px", marginBottom: "10px" }}>JGL</p>
             </div>
-            <div className="divPosition"
-            id = "position_mid"
-            onClick = {() => clickPosition("mid")}
-            style = {{backgroundImage: `url(${process.env.PUBLIC_URL + '/Image/buttonPositionOff.png'})`}}>
-              <p style ={{marginTop: "9px", marginBottom: "10px"}}>MID</p>
+            <div
+              className="divPosition"
+              id="position_mid"
+              onClick={() => clickPosition("mid")}
+              style={{
+                backgroundImage: `url(${
+                  process.env.PUBLIC_URL + "/Image/buttonPositionOff.png"
+                })`,
+              }}
+            >
+              <p style={{ marginTop: "9px", marginBottom: "10px" }}>MID</p>
             </div>
-            <div className="divPosition"
-            id = "position_adc"
-            onClick = {() => clickPosition("adc")}
-            style = {{backgroundImage: `url(${process.env.PUBLIC_URL + '/Image/buttonPositionOff.png'})`}}>
-              <p style ={{marginTop: "9px", marginBottom: "10px"}}>ADC</p>
+            <div
+              className="divPosition"
+              id="position_adc"
+              onClick={() => clickPosition("adc")}
+              style={{
+                backgroundImage: `url(${
+                  process.env.PUBLIC_URL + "/Image/buttonPositionOff.png"
+                })`,
+              }}
+            >
+              <p style={{ marginTop: "9px", marginBottom: "10px" }}>ADC</p>
             </div>
-            <div className="divPosition"
-            id = "position_sup"
-            onClick = {() => clickPosition("sup")}
-            style = {{backgroundImage: `url(${process.env.PUBLIC_URL + '/Image/buttonPositionOff.png'})`}}>
-              <p style ={{marginTop: "9px", marginBottom: "10px"}}>SUP</p>
+            <div
+              className="divPosition"
+              id="position_sup"
+              onClick={() => clickPosition("sup")}
+              style={{
+                backgroundImage: `url(${
+                  process.env.PUBLIC_URL + "/Image/buttonPositionOff.png"
+                })`,
+              }}
+            >
+              <p style={{ marginTop: "9px", marginBottom: "10px" }}>SUP</p>
             </div>
           </div>
           <div className="filterSearch">
@@ -287,7 +325,7 @@ const PagePartyMain = (props) => {
                 position: "relative",
                 float: "right",
               }}
-              onClick = {clickSearch}
+              onClick={clickSearch}
             >
               검색
             </button>
