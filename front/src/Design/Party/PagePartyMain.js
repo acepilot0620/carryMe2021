@@ -3,6 +3,11 @@ import "./Styles.css";
 import { TokenTier, TokenAge, Token02, ItemParty } from ".";
 import Slider from "@material-ui/core/Slider";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import { Button } from "@material-ui/core";
 
 const PagePartyMain = (props) => {
   const searchFilterModule = {
@@ -123,6 +128,20 @@ const PagePartyMain = (props) => {
   });
 
   const clickSearch = () => {
+    console.log("파티 검색 인자: -------------");
+    console.log("title: " + partyInfo.title);
+    console.log("sex: " + partyInfo.sex);
+    console.log("selectedTierMax: " + partyInfo.tierMax);
+    console.log("selectedTierMin: " + partyInfo.tierMin);
+    console.log("selectedAgeMax: " + partyInfo.ageMax);
+    console.log("selectedAgeMin: " + partyInfo.ageMin);
+    console.log("checkedPosition: " + checkedPosition);
+  };
+
+  const [openCreate, setOpenCreate] = useState(false);
+
+  const clickCreate = () => {
+    setOpenCreate(true);
     console.log("파티 검색 인자: -------------");
     console.log("title: " + partyInfo.title);
     console.log("sex: " + partyInfo.sex);
@@ -329,16 +348,52 @@ const PagePartyMain = (props) => {
             >
               검색
             </button>
-            <Link
-              to={{
-                pathname: "/party/" + partyInfo.title,
-                state: {
-                  partyInfo: partyInfo,
-                },
+            <button
+              className="token"
+              style={{
+                position: "relative",
+                float: "right",
               }}
+              onClick={clickCreate}
             >
               파티 생성
-            </Link>
+            </button>
+            <Dialog
+              open={openCreate}
+              onClose={() => {
+                setOpenCreate(false);
+              }}
+            >
+              <DialogTitle
+                onClose={() => {
+                  setOpenCreate(false);
+                }}
+              >
+                파티 생성: {partyInfo.title}
+              </DialogTitle>
+              <DialogContent>
+                <p>파티를 생성하시겠습니까?</p>
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  onClick={() => {
+                    setOpenCreate(false);
+                  }}
+                >
+                  취소
+                </Button>
+                <Link
+                  to={{
+                    pathname: "/party/" + partyInfo.title,
+                    state: {
+                      partyInfo: partyInfo,
+                    },
+                  }}
+                >
+                  파티 생성
+                </Link>
+              </DialogActions>
+            </Dialog>
           </div>
         </div>
       </div>
