@@ -17,6 +17,21 @@ const PagePartyMain = (props) => {
     4: "생성 시간",
   };
 
+  // true: 오름차순 | false: 내림차순
+  const [searchBooleanModule, setSearchBooleanModule] = useState({
+    "현재 인원": true,
+    "평균 티어": false,
+    "최고 티어": false,
+    "생성 시간": false
+  });
+
+  const clickFilter = (filter) => {
+    let original = searchBooleanModule;
+    original[filter] = !original[filter];
+    console.log(filter, " : ", original[filter]);
+    setSearchBooleanModule(original);
+  };
+
   const [parties, setParties] = useState([
     "하나",
     "둘",
@@ -399,10 +414,10 @@ const PagePartyMain = (props) => {
       </div>
       <hr className="lineDivide"></hr>
       <div className="searchFilterModule">
-        <Token02 type={searchFilterModule[1]} />
-        <Token02 type={searchFilterModule[2]} />
-        <Token02 type={searchFilterModule[3]} />
-        <Token02 type={searchFilterModule[4]} />
+        <Token02 type={searchFilterModule[1]} onClick={clickFilter}/>
+        <Token02 type={searchFilterModule[2]} onClick={clickFilter}/>
+        <Token02 type={searchFilterModule[3]} onClick={clickFilter}/>
+        <Token02 type={searchFilterModule[4]} onClick={clickFilter}/>
       </div>
       <hr className="lineDivide"></hr>
       <div className="searchResultModule">{spawnParties()}</div>
